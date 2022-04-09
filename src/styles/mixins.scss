@@ -1,0 +1,18 @@
+
+@mixin button($fontSize: revert, $padding: 10px, $bgColor: blue)
+{
+    font-size: $fontSize;
+    background-color: $bgColor;
+    color: white;
+    padding: $padding;
+    border: 1px solid $bgColor;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover
+    {
+        background-color: white;
+        color: $bgColor;
+    }
+
+}
