@@ -8,10 +8,15 @@
     align-items: center;
     gap: 10px;
     padding: 0 10px;
-    
-    p
+
+    p:first-of-type
     {
-        width: 70%;
+        width: 50%;
+
+        &.done
+        {
+            text-decoration: line-through;
+        }
     }
 
     button

@@ -18,6 +18,11 @@
             padding: 10px 5px;
         }
 
+        input[type=number]
+        {
+            padding: 10px 5px;
+        }
+
         input[type=submit]
         {
             @include mixins.button(1.1rem, 9px 15px, green);
@@ -37,4 +42,8 @@
         }
     }
 
+    select 
+    {
+        float: right;
+    }
 }
