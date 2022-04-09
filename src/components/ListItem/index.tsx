@@ -1,17 +1,36 @@
 
+import { FunctionComponent, useState } from 'react'
 import styles from './ListItem.module.scss'
 
-const ListItem = ({ text }: { text: string}) => 
+interface Props
 {
+    handleShow(): void,
+    handleDeleteClick(id: number): void,
+    id: number,
+    text: string,
+    age: number,
+    done?: boolean
+}
+
+const ListItem: FunctionComponent<Props> = ({ handleShow, handleDeleteClick, id, text, age, done = false }) => 
+{
+    const [isDone, setIsDone] = useState<boolean>(done);
+
+
+    const handleDoneClick = () =>
+    {
+        setIsDone(state => !state);
+    }
 
     return (
         <>
             <hr/>
             <li className={styles.wrapper}>
-                <p>{text}</p>
-                <button>Done</button>
-                <i className="fa fa-pencil-square-o"></i>
-                <i className="fa fa-trash-o"></i>
+                <p className={isDone ? ` ${styles.done}` : ''}>{text}</p>
+                <p>{age} - {age >= 18 ? 'Adult' : 'Child'}</p>
+                <button onClick={handleDoneClick}>{isDone ? 'Undo' : 'Done'}</button>
+                <i onClick={handleShow} className="fa fa-pencil-square-o"></i>
+                <i onClick={() => handleDeleteClick(id)} className="fa fa-trash-o"></i>
             </li>
         </>
 
